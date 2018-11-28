@@ -1,4 +1,4 @@
 numpy
 scipy
 matplotlib
-python3.6-tk
+python-tk
