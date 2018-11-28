@@ -1,0 +1,6 @@
+maxiteration=500
+visual=4
+crowfactor=0.93
+n_fish=10
+step=1
+try_numbers=3

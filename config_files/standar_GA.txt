@@ -1,0 +1,5 @@
+maxgenerations=500
+poppulation_size=20
+mutation_rate=0.01
+selection_rate=0.5
+ga_operators=('proportional_selection','ordered_crossover','swap_mutation','elitism')
