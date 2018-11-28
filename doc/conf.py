@@ -18,7 +18,7 @@ import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('../'))
 sys.path.insert(0, os.path.abspath('../Problemas'))
 sys.path.insert(0, os.path.abspath('../Algoritmos'))
-# autodoc_mock_imports = ["_tkinter"]
+autodoc_mock_imports = ["_tkinter"]
 
 # -- Project information -----------------------------------------------------
 
