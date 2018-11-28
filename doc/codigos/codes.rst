@@ -1,16 +1,16 @@
-Documentacion automatica
+Documentación automática
 =========================
 
-Modulos generales
+Módulos generales
 -----------------
 
-Clase para Optimizar.
-^^^^^^^^^^^^^^^^^^^^^
+Optimizar
+^^^^^^^^^
 .. automodule:: Optimizar
    :members:
 
-Clase con metodos de uso general.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Clase con métodos de uso general
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: funciones_generales
    :members:
 
@@ -18,14 +18,14 @@ Clase con metodos de uso general.
 Algoritmos
 ----------
 
-Algoritmo de la escuela de peces artificiales.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Algoritmo de la escuela de peces artificiales
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: AFSA
    :members:
 
-Algoritmo Genetico.
-^^^^^^^^^^^^^^^^^^^
+Algoritmo Genético
+^^^^^^^^^^^^^^^^^^
    
 .. automodule:: GA
    :members:
@@ -34,27 +34,27 @@ Algoritmo Genetico.
 Problemas
 ---------
 
-Problema del agente viajero.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Problema del agente viajero
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: TSP
    :members:
 
-Problema de las N reinas.
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Problema de las N reinas
+^^^^^^^^^^^^^^^^^^^^^^^^
 .. automodule:: Nqns
    :members:
  
-Funcion Ackley.
-^^^^^^^^^^^^^^^
+Función Ackley
+^^^^^^^^^^^^^^
 .. automodule:: Ackley
    :members:
  
-Funcion Rosenbrock.
-^^^^^^^^^^^^^^^^^^^
+Función Rosenbrock
+^^^^^^^^^^^^^^^^^^
 .. automodule:: Rosenbrock
    :members:
  
-Funcion Rastrigin.
-^^^^^^^^^^^^^^^^^^
+Función Rastrigin
+^^^^^^^^^^^^^^^^^
 .. automodule:: Rastrigin
    :members:

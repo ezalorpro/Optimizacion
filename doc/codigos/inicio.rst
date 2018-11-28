@@ -1,27 +1,27 @@
 Inicio
 ======
 
-Ejecucion simple
+Ejecución simple
 ----------------
 
-Para poder resolver  cualquiera de los problemas se debe empezar por importar el modulo Optimizar el cual posee todas
+Para poder resolver cualquiera de los problemas se debe empezar por importar el modulo Optimizar el cual posee todas
 las funciones necesarias para poder establecer el problema, el algoritmo y un post procesado de los resultados::
 	
 	import Optimizar
 
-Luego se debe instanciar un optimizador, el cual es un objeto de la clase Optimizar dentro del modulo Optimizar,
-despues, se escoge el problema a resolver y el algoritmo a utilizar, ademas, se deben cargar los parametros del algoritmo,
-esto se puede hacer con la funcion set_parameters o creando un diccionario con los paramtros correspondientes::
+Luego se debe instanciar un optimizador, el cual es un objeto de la clase Optimizar dentro del módulo Optimizar,
+después, se escoge el problema a resolver y el algoritmo a utilizar, además, se deben cargar los parámetros del algoritmo,
+esto se puede hacer con la función set_parameters o creando un diccionario con los parámetros correspondientes::
 	
 	optimizador = Optimizar.Optimizar()
 	Problema = optimizador.set_problem('TSP', vector_len=20, size_space=100, dimension=2)
 	instanciador, a_name = optimizador.set_algorithm(class_object='AFSA')
 	Parametros = optimizador.set_parameters('standar_AFSA.txt')
 	
-Finalmente, inicializamos el algoritmo usando como parametros a Parametros y Problema, ambos son diccionarios, asi que podemos
-realizar un unpack de ambos, para empezar el proceso de optimizacion, hacemos un llamado a la funcion del algoritmo empezar(),
-a esta funcion se le puede enviar el parametro show_results, el cual por defecto es True y habilita la impresion del resultado,
-para procesar los resultados obtenidos podemos utilizar la funcion procesar() del optimizador::
+Finalmente, inicializamos el algoritmo usando como parámetros a Parametros y Problema, ambos son diccionarios, así que podemos
+realizar un unpack de ambos, para empezar el proceso de optimización, hacemos un llamado a la función del algoritmo empezar(),
+a esta función se le puede enviar el parámetro show_results, el cual por defecto es True y habilita la impresión del resultado,
+para procesar los resultados obtenidos podemos utilizar la función procesar() del optimizador::
 	
 	Algoritmo = instanciador(**Parametros, **Problema)
 	fitness_evolution, objeto, metrica = Algoritmo.empezar(show_results=True)
@@ -47,7 +47,7 @@ Para el problema del agente viajero los resultados son los siguientes::
    
    Grafica del fitness.
 	
-Codigo completo::
+Código completo::
 	
 	import matplotlib.pyplot as plt
 	import Optimizar
@@ -68,18 +68,18 @@ Codigo completo::
 	plt.grid()
 	plt.show()
 	
-Ejecucion alterna
+Ejecución alterna
 -----------------
 
-Se puede reducir la verbocidad del codigo si conoce el funcionamiento exacto de los modulos, por tanto, se muestra
+Se puede reducir la verbosidad del código si conoce el funcionamiento exacto de los módulos, por tanto, se muestra
 una forma alterna de realizar el mismo ejemplo anterior::
 	
 	Resultado = instanciador(**Parametros, **Problema).empezar(show_results=True)
 	optimizador.procesar(*Resultado, a_name)
 
-El codigo final es mas compacto a costa de explicites, se deja a manos del lector la eleccion de cual forma utilizar.
+El código final es más compacto a costa de explicites, se deja a manos del lector la elección de cual forma utilizar.
 	
-Codigo completo::
+Código completo::
 
 	import matplotlib.pyplot as plt
 	import Optimizar
@@ -99,11 +99,11 @@ Codigo completo::
 	plt.grid()
 	plt.show()
 
-Ejecucion multiple en secuencia
+Ejecución múltiple en secuencia
 -------------------------------
 
-Podemos realizar multiples ejecuciones del mismo algoritmo, bien sea para un mismo problema o para distintos,
-con el siguiente codigo se puede ejecutar n veces el algoritmo escogido para un mismo problema, en este caso, 5 veces::
+Podemos realizar múltiples ejecuciones del mismo algoritmo, bien sea para un mismo problema o para distintos,
+con el siguiente código se puede ejecutar n veces el algoritmo escogido para un mismo problema, en este caso, 5 veces::
 	
 	best_solution = []
 	for _ in range(5):   # Numero de ejecuciones secuenciales
@@ -120,7 +120,7 @@ con el siguiente codigo se puede ejecutar n veces el algoritmo escogido para un 
    
    Grafica del fitness para las distintas pruebas.	
 	
-Codigo completo::
+Código completo::
 	
 	import matplotlib.pyplot as plt
 	from funciones_generales import General
@@ -147,10 +147,10 @@ Codigo completo::
 	plt.grid()
 	plt.show()
 	
-Ejecucion multiple en paralelo
+Ejecución múltiple en paralelo
 ------------------------------
 
-Haciendo uso de la libreria multiprocessing podemos correr dos algoritmos al mismo tiempo para resolver el mismo problema
+Haciendo uso de la librería multiprocessing podemos correr dos algoritmos al mismo tiempo para resolver el mismo problema
 o uno distinto a gusto, la clave se encuentra en instanciar dos algoritmos::
 	
 	# Se establecen los algoritmos a usar
@@ -161,8 +161,8 @@ o uno distinto a gusto, la clave se encuentra en instanciar dos algoritmos::
 	Parametros1 = optimizador.set_parameters('standar_AFSA.txt')
 	Parametros2 = optimizador.set_parameters('standar_GA.txt')
 	
-Luego se haciendo uso de la libreria multiprocessing podemos crear dos colas para retornar la informacion de los resultados
-en cada thread, ademas, se establecen los procesos a correr::
+Luego se haciendo uso de la librería multiprocessing podemos crear dos colas para retornar la información de los resultados
+en cada thread, además, se establecen los procesos a correr::
 	
 	# Colas
 	q1 = Queue()
@@ -196,7 +196,7 @@ utilizando las funciones join()::
    
    Grafica del fitness de ambos algoritmos.
    
-Codigo completo::
+Código completo::
 	
 	from multiprocessing import Queue, Process
 	from matplotlib import pyplot as plt
