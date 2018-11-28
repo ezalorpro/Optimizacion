@@ -6,8 +6,9 @@
 Modulo de Optimizacion
 =============================
 
-Documentacion completa del modulo de optimizacion, aca se describe el modo de uso, la estructura interna,
-modo de agregar otros algoritmos y problemas, y los docstring del codigo generados con autodoc de sphinx.
+Documentacion completa del modulo de optimizacion, aca se describen los modos de uso, la estructura interna,
+modos de agregar otros algoritmos y problemas, y los docstring del codigo generados de forma
+automatica con autodoc de sphinx.
 
 .. toctree::
    :maxdepth: 2
