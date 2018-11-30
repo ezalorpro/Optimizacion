@@ -14,6 +14,7 @@ automatica con autodoc de sphinx.
    :maxdepth: 2
    :caption: Contenido:
    
+   codigos/requerimientos
    codigos/inicio
    codigos/estructura
    codigos/codes

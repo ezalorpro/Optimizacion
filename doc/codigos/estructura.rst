@@ -13,11 +13,19 @@ con la que el usuario interactuara para resolver los problemas, posee 3 funcione
 Los nombres de las funciones son un indicativo de su uso, set_problem se encargará de instanciar
 un objeto de la clase del problema y retornar las funciones necesarias del mismo, set_algorithm, instanciara
 un objeto de la clase del algoritmo y retornara el objeto para ser inicializado con sus respectivos
-parámetros, estos parámetros se pueden leer de un archivo de texto usando la función set_parameters.
+parámetros, estos parámetros se pueden leer de un archivo de texto usando la función set_parameters,
+se presenta como ejemplo el formato para el archivo de configuración del AFSA::
+	
+	maxiteration=1000
+	visual=4
+	crowfactor=0.83
+	n_fish=10
+	step=1
+	try_numbers=10
 
-Adicionalmente se pretende agregar más funciones para el post procesado de los resultados, actualmente
-la única función de este estilo es procesar, la cual grafica el fitness vs métrica utilizando los valores
-que retorna la función empezar( ) de cada algoritmo.
+Adicionalmente se pretende agregar funciones para el post procesado de los resultados, actualmente
+la única función de este estilo es procesar( ), la cual grafica el fitness vs métrica utilizando los valores
+que retorna la función empezar( ) de cada algoritmo o aquellos que se guardan en una cola.
  
 Algoritmos
 ----------
@@ -57,17 +65,22 @@ estructurar de manera básica del siguiente modo::
 			ciclo  for secundario:
 				# funciones del algoritmo
 			# imprimir % de ejecucion
-			# guardado de las mejores soluciones
+			# guardado de las mejores soluciones y de la evolucion del fitness
 		:
 		:
 		# mostrar resultados
-		# retorno de resultados con return y/o cola
+		
+		if queue is not None:
+			paquete = [fitness_evolution, copy.deepcopy(self.getbestsolution(best_solutions)), metrica]
+			queue.put(paquete)
+		
+		return fitness_evolution, copy.deepcopy(self.getbestsolution(best_solutions)), metrica
 
-Por otro lado, el constructor deberá poder aceptar todos los parámetros necesarios del algoritmo, adicionalmente
-deberá aceptar las funciones del problema y el problema base, en este constructor se inicializarán las variables
-de la clase que deberían corresponder con los parámetros recibidos, todos los parámetros recibidos estarán en formato
-string, por tanto, se deben transformar al tipo de variable que se requiera, es decir, int, float, list, etc. Una
-estructura básica para el constructor es la siguiente::
+Por otro lado, cuando se defina el constructor se debe tomar en cuenta que este deberá poder aceptar todos los parámetros
+necesarios del algoritmo, adicionalmente deberá aceptar las funciones del problema y el problema base, en este constructor
+se inicializarán las variables de la clase que deberían corresponder con los parámetros recibidos, todos los parámetros
+recibidos estarán en formato string, por tanto, se deben transformar al tipo de variable que se requiera, es decir, int,
+float, list, etc. Una estructura básica para el constructor es la siguiente::
 	
 	def __init__(self,
 			parametros,

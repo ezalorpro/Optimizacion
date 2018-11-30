@@ -14,4 +14,4 @@ Problemas:
 * Travelling Salesman Problem (TSP)
 * Funciones Ackley, Rastrigin y Rosenbrock
 
-Para mas detalles revisar la documentacion en español: http://optimizacion.rtfd.io/
+Para mas detalles revisar la documentacion: http://optimizacion.rtfd.io/
