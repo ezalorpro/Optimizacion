@@ -13,13 +13,13 @@ instanciador, a_name = optimizador.set_algorithm(class_object='AFSA')
 Parametros = optimizador.set_parameters('standar_AFSA.txt')
 
 # Forma compacta
-# Resultado = instanciador(**Parametros, **Problema).empezar(show_results=True)
-# optimizador.procesar(*Resultado, a_name)
+Resultado = instanciador(**Parametros, **Problema).empezar(show_results=True)
+optimizador.procesar(*Resultado, a_name)
 
 # Mas explicito
-Algoritmo = instanciador(**Parametros, **Problema)
-fitness_evolution, objeto, metrica = Algoritmo.empezar(show_results=True)
-optimizador.procesar(fitness_data=fitness_evolution, best_finded=objeto, metrica=metrica, algoritmo=a_name)
+# Algoritmo = instanciador(**Parametros, **Problema)
+# fitness_evolution, objeto, metrica = Algoritmo.empezar(show_results=True)
+# optimizador.procesar(fitness_data=fitness_evolution, best_finded=objeto, metrica=metrica, algoritmo=a_name)
 
 # Para correr varias veces
 # best_solution = []
