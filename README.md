@@ -15,3 +15,5 @@ Problemas:
 * Funciones Ackley, Rastrigin y Rosenbrock
 
 Para mas detalles revisar la documentacion: http://optimizacion.rtfd.io/
+
+Autor: Kleiver Carrasco
