@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import Optimizar
 
 optimizador = Optimizar.Optimizar()
-Problema = optimizador.set_problem('TSP', vector_len=20, size_space=100, dimension=2)
+Problema = optimizador.set_problem('TSP', vector_len=20, size_space=50, dimension=2)
 instanciador, a_name = optimizador.set_algorithm(class_object='AFSA')
 Parametros = optimizador.set_parameters('standar_AFSA.txt')
 
@@ -17,19 +17,19 @@ Parametros = optimizador.set_parameters('standar_AFSA.txt')
 # optimizador.procesar(*Resultado, a_name)
 
 # Mas explicito
-# Algoritmo = instanciador(**Parametros, **Problema)
-# fitness_evolution, objeto, metrica = Algoritmo.empezar(show_results=True)
-# optimizador.procesar(fitness_data=fitness_evolution, best_finded=objeto, metrica=metrica, algoritmo=a_name)
+Algoritmo = instanciador(**Parametros, **Problema)
+fitness_evolution, objeto, metrica = Algoritmo.empezar(show_results=True)
+optimizador.procesar(fitness_data=fitness_evolution, best_finded=objeto, metrica=metrica, algoritmo=a_name)
 
 # Para correr varias veces
-best_solution = []
-for _ in range(5):   # Numero de ejecuciones secuenciales
-	Resultado = instanciador(**Parametros, **Problema).empezar(show_results=True)
-	optimizador.procesar(*Resultado, a_name)
-	best_solution.append(Resultado[1])
+# best_solution = []
+# for _ in range(5):   # Numero de ejecuciones secuenciales
+# 	Resultado = instanciador(**Parametros, **Problema).empezar(show_results=True)
+# 	optimizador.procesar(*Resultado, a_name)
+# 	best_solution.append(Resultado[1])
 
-best_solution = General.getbestsolution(best_solution)
-print(f'\nMejor solucion: {best_solution.position}\ncon fitness de : {best_solution.fitness}')
+# best_solution = General.getbestsolution(best_solution)
+# print(f'\nMejor solucion: {best_solution.position}\ncon fitness de : {best_solution.fitness}')
 
 plt.xlabel('iteraciones * poblacion')
 plt.ylabel('fitness')

@@ -17,6 +17,7 @@ from funciones_generales import General
 import copy
 import random
 import time
+from tqdm import tqdm
 
 
 class Fish:
@@ -79,7 +80,7 @@ class AFSA(General):
 			
 		self.vector_len = len(self.problema_base)
 		
-	def empezar(self, queue: None = None, show_results: bool = True) -> Tuple[List[float], Fish, int]:
+	def empezar(self, queue: None = None, show_results: bool = True, position: int = 0) -> Tuple[List[float], Fish, int]:
 		"""
 		
 		Empieza el proceso de optimizacion, hace el llamado para guardar el mejor pez despues de cada iteracion y llama
@@ -91,13 +92,13 @@ class AFSA(General):
 		operaciones realizadas (iteraciones * n_fish).
 		
 		"""
-		
+		print('Empezando proceso de optimizacion....')
 		start = time.time()
 		mejor_fish = []
 		fitness_evolution = []
 		interval = self.Maxiteration*0.2/100
 		count = 0
-		for iteration in range(self.Maxiteration):
+		for iteration in tqdm(range(self.Maxiteration), position=position):
 			for index, fish in enumerate(self.GroupFish):
 				_ = self.follow_behavior(index, fish)
 			
@@ -105,7 +106,6 @@ class AFSA(General):
 			
 			if count > interval:
 				count = 0
-				print(f'{(iteration/self.Maxiteration)*100:.2f} %')
 				fitness_evolution.append(self.getbestsolution(mejor_fish).fitness)
 			count += 1
 			

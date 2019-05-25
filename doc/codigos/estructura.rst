@@ -57,7 +57,7 @@ En orden de agregar más algoritmos al módulo de optimización se recomienda es
 sobre todo la función empezar( ) y las funciones de los problemas. La función empezar( ) se puede
 estructurar de manera básica del siguiente modo::
 	
-	def empezar(self, queue: None = None, show_results: bool = True) -> Tuple[List[float], object, int]:
+	def empezar(self, queue: None = None, show_results: bool = True, position: int = 0) -> Tuple[List[float], object, int]:
 		# variables necesarias
 		:
 		:

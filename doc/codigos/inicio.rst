@@ -173,8 +173,8 @@ en cada thread, además, se establecen los procesos a correr::
 	ejecutar2 = instanciador2(**Parametros2, **Problema1)
 	
 	# Se define la ejecucion de los procesos para ambos algoritmos enviando la cola para retornar informacion
-	p1 = Process(target=ejecutar1.empezar, kwargs=dict(queue=q1, show_results=False))
-	p2 = Process(target=ejecutar2.empezar, kwargs=dict(queue=q2, show_results=False))
+	p1 = Process(target=ejecutar1.empezar, kwargs=dict(queue=q1, show_results=True, position=0))
+	p2 = Process(target=ejecutar2.empezar, kwargs=dict(queue=q2, show_results=True, position=1))
 	
 Finalmente se ejecutan los procesos y se procesan cuando hayan terminado para luego continuar con el proceso principal
 utilizando las funciones join()::
@@ -228,8 +228,8 @@ Código completo::
 		ejecutar2 = instanciador2(**Parametros2, **Problema1)
 		
 		# Se define la ejecucion de los procesos para ambos algoritmos enviando la cola para retornar informacion
-		p1 = Process(target=ejecutar1.empezar, kwargs=dict(queue=q1, show_results=False))
-		p2 = Process(target=ejecutar2.empezar, kwargs=dict(queue=q2, show_results=False))
+		p1 = Process(target=ejecutar1.empezar, kwargs=dict(queue=q1, show_results=True, position=0))
+		p2 = Process(target=ejecutar2.empezar, kwargs=dict(queue=q2, show_results=True, position=1))
 		
 		# Se inician los procesos
 		p1.start()

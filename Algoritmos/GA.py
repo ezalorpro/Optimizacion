@@ -23,6 +23,7 @@ import ast
 import copy
 import random
 import time
+from tqdm import tqdm
 from typing import *
 from funciones_generales import General
 
@@ -80,7 +81,7 @@ class GA(General):
 			fish_ini = Chromosome(copy.copy(vector), copy.copy(fit))
 			self.GroupChromosomes.append(fish_ini)
 		
-	def empezar(self, queue: None = None, show_results: bool = True) -> Tuple[List[float], Chromosome, int]:
+	def empezar(self, queue: None = None, show_results: bool = True, position: int = 0) -> Tuple[List[float], Chromosome, int]:
 		"""
 		
 		Empieza el proceso de optimizacion, hace el llamado para guardar el mejor cromosoma despues de cada iteracion y
@@ -99,7 +100,7 @@ class GA(General):
 		interval = self.Maxiteration * 0.2 / 100
 		count = 0
 		
-		for iteration in range(self.Maxiteration):
+		for iteration in tqdm(range(self.Maxiteration), position=position):
 			couples = []
 			childs = []
 			parents = []
@@ -130,7 +131,6 @@ class GA(General):
 			
 			if count > interval:
 				count = 0
-				print(f'{(iteration/self.Maxiteration)*100:.2f} %')
 				fitness_evolution.append(self.getbestsolution(best_chromosome).fitness)
 			
 			count += 1
