@@ -203,7 +203,7 @@ class AFSA(General):
 		
 		if len(self.vecinos)/self.n_fish < self.crowfactor:
 			
-			xc = self.calcular_centroide(self.GroupFish)
+			xc = self.calcular_centroide(self.GroupFish, self.problema_base, self.vector_len, self.vecinos)
 			
 			if self.calcular_fitness(xc, self.vector_len) < fish.fitness:
 				self.GroupFish[index].position = copy.copy(xc)

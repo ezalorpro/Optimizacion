@@ -1,4 +1,4 @@
-maxiteration=1000
+maxiteration=10000
 visual=4
 crowfactor=0.83
 n_fish=10

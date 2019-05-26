@@ -16,7 +16,11 @@ class General:
 	
 	"""
 	
-	def calcular_centroide(self, grupo: object) -> List[Tuple[float, float]]:
+	@staticmethod
+	def calcular_centroide(grupo: object,
+							problema_base: List[Tuple[int, int]],
+		 					vector_len: int,
+							vecinos: List[Tuple[int, int]]) -> List[Tuple[float, float]]:
 		"""
 	
 		Metodo para calcular el centroide
@@ -26,8 +30,8 @@ class General:
 	
 		"""
 		
-		a = (x.position for x in self.vecinos)
-		xc = [None] * self.vector_len
+		a = (x.position for x in vecinos)
+		xc = [None] * vector_len
 		
 		for k, columna in enumerate(zip(*a)):
 			cuentas = {key: columna.count(key) for key in set(columna)}
@@ -40,10 +44,10 @@ class General:
 		
 		while None in xc:
 			miss = xc.index(None)
-			xc[miss] = next(self.problema_base[x] for x in range(self.vector_len) if self.problema_base[x] not in xc)
+			xc[miss] = next(problema_base[x] for x in range(vector_len) if problema_base[x] not in xc)
 		
-		if sum(True if x.position == xc else False for x in grupo) > 0 and self.vector_len > 1:
-			b = random.sample(range(self.vector_len), 2)
+		if sum(True if x.position == xc else False for x in grupo) > 0 and vector_len > 1:
+			b = random.sample(range(vector_len), 2)
 			xc[b[1]], xc[b[0]] = xc[b[0]], xc[b[1]]
 		
 		return xc
