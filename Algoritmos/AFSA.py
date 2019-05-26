@@ -16,7 +16,6 @@ from typing import *
 from funciones_generales import General
 import copy
 import random
-import time
 from tqdm import tqdm
 
 
@@ -93,7 +92,6 @@ class AFSA(General):
 		
 		"""
 		print('Empezando proceso de optimizacion....')
-		start = time.time()
 		mejor_fish = []
 		fitness_evolution = []
 		interval = self.Maxiteration*0.2/100
@@ -108,10 +106,6 @@ class AFSA(General):
 				count = 0
 				fitness_evolution.append(self.getbestsolution(mejor_fish).fitness)
 			count += 1
-			
-		end = time.time()
-		tiempo = end - start
-		print("\nTiempo transcurrido: %.3f" % tiempo)
 		
 		if show_results:
 			self.imprimir_respuesta(self.problema_base, self.getbestsolution(mejor_fish), queue)
