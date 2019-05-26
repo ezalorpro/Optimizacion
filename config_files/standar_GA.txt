@@ -1,4 +1,4 @@
-maxgenerations=500
+maxgenerations=5000
 poppulation_size=20
 mutation_rate=0.01
 selection_rate=0.5

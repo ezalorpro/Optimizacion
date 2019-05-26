@@ -22,7 +22,6 @@ Ejecucion_simple.py o Ejecucion_multiple.py.
 import ast
 import copy
 import random
-import time
 from tqdm import tqdm
 from typing import *
 from funciones_generales import General
@@ -94,7 +93,6 @@ class GA(General):
 		
 		"""
 		
-		start = time.time()
 		best_chromosome = []
 		fitness_evolution = []
 		interval = self.Maxiteration * 0.2 / 100
@@ -135,10 +133,6 @@ class GA(General):
 			
 			count += 1
 			self.NC += 1
-			
-		end = time.time()
-		tiempo = end - start
-		print("\nTiempo transcurrido: %.3f" % tiempo)
 		
 		if show_results:
 			self.imprimir_respuesta(self.problema_base, self.getbestsolution(best_chromosome), queue)
